@@ -1,0 +1,21 @@
+void BinarySearchTree::printInOrder(Node* node) {
+    //if node is not equal to null ptr
+    if (node != nullptr) {
+        //InOrder node left
+        printInOrder(node->left);
+        //output courseNumber, title, prereqs
+        cout << node->course.courseNumber << ": " << node->course.courseName;
+        if (node->course.prereqs.size() > 0) {
+            cout << " | ";
+            for (int i = 0; i < node->course.prereqs.size(); i++) {
+                cout << node->course.prereqs.at(i) << " ";
+            }
+            cout << endl;
+        }
+        else {
+            cout << endl;
+        }
+        //InOder right
+        printInOrder(node->right);
+    }
+}
